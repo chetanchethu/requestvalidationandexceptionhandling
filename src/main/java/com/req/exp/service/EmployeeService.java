@@ -35,4 +35,27 @@ public class EmployeeService {
 			throw new  EmployeeNotFoundException("Employee not found with id: "+id);
 	}
 	}
+	
+	public Employee updateEmployee(int id,EmployeeRequest req) throws EmployeeNotFoundException {
+		Employee e=repo.findById(id);
+		if(e!=null) {
+		Employee update=e.build(id, req.getName(),
+					req.getAge(), req.getSalary(), req.getEmail(), 
+					req.getMobile(), req.getNationality());
+		return repo.save(update);
+		
+		}else {
+			throw new EmployeeNotFoundException("Employee id: "+id+" not found");
+		}
+	}
+	
+	public String deleteEmp(int id) throws EmployeeNotFoundException {
+		Employee e=repo.findById(id);
+		if(e!=null) {
+			repo.delete(e);
+			return "Success";
+		}else {
+			throw new EmployeeNotFoundException("Employee id: "+id+" not found");
+		}
+	}
 }
