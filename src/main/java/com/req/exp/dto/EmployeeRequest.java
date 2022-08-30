@@ -15,6 +15,7 @@ import lombok.NoArgsConstructor;
 public class EmployeeRequest {
 	private int id;
 	// Note : Notblank means notnull+notempty
+	//Note: for string null and blank is considered ad for int @min @max is considered first
 	@NotBlank(message = "Name cannot be blank")
 	private String name;
 	@Min(18)
@@ -30,4 +31,5 @@ public class EmployeeRequest {
 	private int mobile;
 	@NotNull(message = "Nationality cannot be null")
 	private String nationality;
+	
 }

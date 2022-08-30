@@ -50,7 +50,7 @@ public class EmployeeController {
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<Employee> updateEmployee(@PathVariable int id, @RequestBody @Valid EmployeeRequest request) throws EmployeeNotFoundException{
+	public ResponseEntity<Employee> updateEmployee(@PathVariable int id, @RequestBody  EmployeeRequest request) throws EmployeeNotFoundException{
 	return new ResponseEntity<Employee>(service.updateEmployee(id, request),HttpStatus.OK);	
 		
 	}

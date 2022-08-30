@@ -39,11 +39,12 @@ public class EmployeeService {
 	public Employee updateEmployee(int id,EmployeeRequest req) throws EmployeeNotFoundException {
 		Employee e=repo.findById(id);
 		if(e!=null) {
+			//e.setName(req.getName());e.setNationality(req.getNationality());e.setMobile(req.getMobile());
+			//e.setAge(req.getAge());e.setEmail(req.getEmail());e.setSalary(req.getSalary());
 		Employee update=e.build(id, req.getName(),
 					req.getAge(), req.getSalary(), req.getEmail(), 
 					req.getMobile(), req.getNationality());
 		return repo.save(update);
-		
 		}else {
 			throw new EmployeeNotFoundException("Employee id: "+id+" not found");
 		}

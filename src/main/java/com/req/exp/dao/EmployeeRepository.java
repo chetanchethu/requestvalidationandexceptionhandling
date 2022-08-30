@@ -8,4 +8,5 @@ import com.req.exp.model.Employee;
 public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 
 	Employee findById(@Param("id")int id);
+	
 }
